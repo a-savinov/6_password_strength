@@ -25,35 +25,19 @@ def check_password_length(user_password, min_length, max_length):
 
 
 def check_password_has_digit(user_password):
-    if re.search(r'[0-9]', user_password):
-        password_check = True
-    else:
-        password_check = False
-    return password_check
+    return re.search(r'[0-9]', user_password)
 
 
 def check_password_has_upper(user_password):
-    if re.search(r'[A-Z]', user_password):
-        password_check = True
-    else:
-        password_check = False
-    return password_check
+    return re.search(r'[A-Z]', user_password)
 
 
 def check_password_has_lower(user_password):
-    if re.search(r'[a-z]', user_password):
-        password_check = True
-    else:
-        password_check = False
-    return password_check
+    return re.search(r'[a-z]', user_password)
 
 
 def check_password_has_symbol(user_password):
-    if re.search(r"[ !#$%&'()*+,-./[\\\]^_`{|}~" + r'"]', user_password):
-        password_check = True
-    else:
-        password_check = False
-    return password_check
+    return re.search(r"[ !#$%&'()*+,-./[\\\]^_`{|}~" + r'"]', user_password)
 
 
 def get_password_strength_score():
