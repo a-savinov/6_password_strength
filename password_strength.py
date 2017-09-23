@@ -40,10 +40,8 @@ def check_password_has_symbol(user_password):
     return re.search(r"[ !#$%&'()*+,-./[\\\]^_`{|}~" + r'"]', user_password)
 
 
-def get_password_strength_score():
+def get_password_strength_score(min_length, max_length):
     score = 1
-    min_length = 6
-    max_length = 12
     check_list = [check_password_not_in_file(user_password, raw_data),
                   check_password_length(user_password, min_length, max_length),
                   check_password_has_digit(user_password),
@@ -61,7 +59,9 @@ if __name__ == '__main__':
     if len(sys.argv) > 2:
         user_password = sys.argv[1]
         filename = sys.argv[2]
+        min_length = 6
+        max_length = 12
         raw_data = load_data(filename)
-        print('You password strength score : ' + str(get_password_strength_score()))
+        print('You password strength score : ' + str(get_password_strength_score(min_length, max_length)))
     else:
         print('No necessary data provided')
