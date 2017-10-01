@@ -12,7 +12,7 @@ Script do some checks:
 5. password has a lowercase letter
 6. password has a symbol
 
-# How to use
+# How to use:
 
 ```bash
 
