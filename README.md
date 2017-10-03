@@ -16,14 +16,21 @@ Script do some checks:
 
 ```bash
 
-$ python password_strength.py <user_password> <weak_passwords_file.txt>
+$ python password_strength.py -h
+usage: password_strength.py [-h] -p PASSWORD -f FILE
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -p PASSWORD, --password PASSWORD
+                        User password for analyse
+  -f FILE, --file FILE  File with worst passwords
 
 ```
 
 ## Output example:
 
 ```bash
-$ python password_strength.py /n,ici4lPF> 500-worst-passwords.txt
+$ python password_strength.py -p /n,ici4lPF> -f 500-worst-passwords.txt
 You password strength score : 10.0
 ```
 
