@@ -1,5 +1,6 @@
 import argparse
 import re
+import getpass
 
 WEIGHT_OF_ONE_CHECK = 1.5
 MIN_SCORE = 1
@@ -52,8 +53,8 @@ def get_password_strength_score(user_password,
 
 def input_argument_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-p', '--password', required=True,
-                        help='User password for analyse')
+    parser.add_argument('-p', '--password', required=False,
+                        help='User password for analyse (optional)')
     parser.add_argument('-f', '--file', required=True,
                         help='File with worst passwords')
     return parser
@@ -62,7 +63,10 @@ def input_argument_parser():
 if __name__ == '__main__':
     parser = input_argument_parser()
     namespace = parser.parse_args()
-    user_password = namespace.password
+    if not namespace.password:
+        user_password = getpass.getpass(prompt='Enter password for analyse: ')
+    else:
+        user_password = namespace.password
     filename = namespace.file
     min_length = 6
     max_length = 12

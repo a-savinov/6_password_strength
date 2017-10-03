@@ -22,17 +22,27 @@ usage: password_strength.py [-h] -p PASSWORD -f FILE
 optional arguments:
   -h, --help            show this help message and exit
   -p PASSWORD, --password PASSWORD
-                        User password for analyse
+                        User password for analyse (optional)
   -f FILE, --file FILE  File with worst passwords
 
 ```
 
 ## Output example:
 
+**recommended**
+
+```bash
+$ python password_strength.py -f 500-worst-passwords.txt
+Enter password for analyse:
+You password strength score : 10.0
+```
+**or (not recommended)**
+
 ```bash
 $ python password_strength.py -p /n,ici4lPF> -f 500-worst-passwords.txt
 You password strength score : 10.0
 ```
+
 
 # Project Goals
 
